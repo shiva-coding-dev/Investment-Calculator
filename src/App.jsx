@@ -21,6 +21,7 @@ function App() {
     });
   }
 
+  const isValidInput = userInput.duration >= 1;
 
   return (
     <>
@@ -30,8 +31,8 @@ function App() {
       onChange = {handleChange}
       userInput={userInput}
       />
-
-      <Results input={userInput}/>
+      {!isValidInput && <p className="center">Please Enter the Duration correctly (Duration must be atleast 1 year)</p>}
+      {isValidInput && <Results input={userInput}/>}
     </>
   );
 }
